@@ -5,14 +5,8 @@ module DockerCloud
     attr_reader :headers
     attr_reader :type
 
-    BASE_API_PATH = 'https://cloud.docker.com/'
+    BASE_API_PATH = 'https://cloud.docker.com/api'
     API_VERSION = 'v1'
-
-    enum type: {
-        infrastructure: 'infra',
-        repository: 'repo',
-        application: 'app'
-    }
 
     def initialize(headers, type)
       @headers = headers
@@ -20,10 +14,11 @@ module DockerCloud
     end
 
     def url(path)
-      BASE_API_PATH + '/' + path
+      BASE_API_PATH + '/' + @type + '/' + API_VERSION + path
     end
 
     def http_get(path, params={})
+      puts url(path)
       query =  "?" + params.map { |k,v| "#{k}=#{v}"}.join("&")
       full_path = path
       full_path += query unless params.empty?

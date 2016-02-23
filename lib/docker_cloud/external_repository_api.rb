@@ -1,7 +1,7 @@
 module DockerCloud
   class ExternalRepositoryAPI < DockerCloud::BaseAPI
     def url(name = '')
-      "api/infra/#{DockderCloud::DOCKER_CLOUD_API_VERSION}/respository/#{name}"
+      "/respository/#{name}"
     end
 
     def all

@@ -2,7 +2,7 @@ module DockerCloud
   class NodeTypeAPI
     def list_url(name = '')
       puts "#{DockerCloud::DOCKER_CLOUD_API_VERSION}"
-      "/api/infra/#{DockerCloud::DOCKER_CLOUD_API_VERSION}/provider/#{name}"
+      "/nodetype/#{name}"
     end
 
     # Lists all node types of all supported cloud providers

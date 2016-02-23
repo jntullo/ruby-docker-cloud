@@ -1,8 +1,7 @@
 module DockerCloud
   class RegionAPI < DockerCloud::BaseAPI
     def list_url(provider_region = '')
-      puts "#{DockerCloud::DOCKER_CLOUD_API_VERSION}"
-      "/api/infra/#{DockerCloud::DOCKER_CLOUD_API_VERSION}/region/#{provider_region}"
+      "/region/#{provider_region}"
     end
 
     # Lists all regions of all supported cloud providers.
