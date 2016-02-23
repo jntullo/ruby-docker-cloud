@@ -1,6 +1,8 @@
 require 'docker_cloud/version'
 require 'docker_cloud/base_api'
 require 'docker_cloud/provider_api'
+require 'docker_cloud/region_api'
+require 'docker_cloud/availability_zone_api'
 
 module DockerCloud
   class Client
@@ -21,6 +23,14 @@ module DockerCloud
 
     def providers
       @providers ||= DockerCloud::ProviderAPI.new(headers)
+    end
+
+    def regions
+      @regions ||= DockerCloud::RegionAPI.new(headers)
+    end
+
+    def availability_zones
+      @availability_zones ||= DockerCloud::AvailabilityZoneAPI.new(headers)
     end
 
     private
