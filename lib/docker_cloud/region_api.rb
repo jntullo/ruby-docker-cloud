@@ -12,7 +12,7 @@ module DockerCloud
 
     # Gets all the details of a specific region for a specific provider
     # Returns a Region object
-    def get_by_name(provider_name, region_name)
+    def get(provider_name, region_name)
       provider_region = "#{provider_name}/#{region_name}"
       http_get(list_url(provider_region))
     end

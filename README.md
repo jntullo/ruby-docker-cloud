@@ -37,6 +37,27 @@ provider.all
 # Get a provider by name
 provider.get('digitalocean')
 
+# Regions
+regions = client.regions
+
+# List all regions
+regions.all
+
+# Get a particular region
+# regions.get(<provider_name>, <region_name>)
+# example:
+regions.get('softlayer', 'ams03')
+
+# Availability Zones
+az = client.availability_zones
+
+# List all AZ
+az.all
+
+# Get a particular AZ
+# az.get(<provider name>, <region name>, <az name>)
+# example:
+az.get('softlayer', 'ams03', 'ap-northeast-1a')
 ```
 
 ## Contributing
