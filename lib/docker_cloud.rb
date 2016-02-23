@@ -3,6 +3,7 @@ require 'docker_cloud/base_api'
 require 'docker_cloud/provider_api'
 require 'docker_cloud/region_api'
 require 'docker_cloud/availability_zone_api'
+require 'docker_cloud/node_type_api'
 
 module DockerCloud
   class Client
@@ -31,6 +32,10 @@ module DockerCloud
 
     def availability_zones
       @availability_zones ||= DockerCloud::AvailabilityZoneAPI.new(headers)
+    end
+
+    def node_types
+      @node_types ||= DockerCloud::NodeTypesAPI.new(headers)
     end
 
     private
