@@ -4,7 +4,7 @@ module DockerCloud
       "api/infra/#{DockderCloud::DOCKER_CLOUD_API_VERSION}/nodecluster/#{params}"
     end
 
-    def list(params={})
+    def all(params={})
       http_get(url, params)
     end
 
