@@ -1,8 +1,7 @@
 module DockerCloud
   class RegistryAPI < DockerCloud::BaseAPI
     def url(host = '')
-      puts "#{DockerCloud::DOCKER_CLOUD_API_VERSION}"
-      "/api/repo/#{DockerCloud::DOCKER_CLOUD_API_VERSION}/registry/#{host}"
+      "/registry/#{host}"
     end
 
     def all(params={})
