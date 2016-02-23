@@ -3,7 +3,6 @@ module DockerCloud
     attr_accessor :uuid, :resource_uri
 
     def initialize(json)
-      puts json
     end
 
   end

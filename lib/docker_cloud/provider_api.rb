@@ -8,7 +8,7 @@ module DockerCloud
       http_get(list_url, params)
     end
 
-    def get_by_name(name)
+    def get(name)
       http_get(list_url(name))
     end
   end
