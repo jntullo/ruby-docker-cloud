@@ -7,7 +7,7 @@ module DockerCloud
 
     # Lists all node types of all supported cloud providers
     # Returns a list of NodeType objects
-    def list(params={})
+    def all(params={})
       http_get(list_url, params)
     end
 

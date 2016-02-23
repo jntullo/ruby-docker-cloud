@@ -4,6 +4,9 @@ require 'docker_cloud/provider_api'
 require 'docker_cloud/region_api'
 require 'docker_cloud/availability_zone_api'
 require 'docker_cloud/node_type_api'
+require 'docker_cloud/provider'
+require 'docker_cloud/node_cluster_api'
+require 'docker_cloud/node_api'
 
 module DockerCloud
   class Client
@@ -36,6 +39,14 @@ module DockerCloud
 
     def node_types
       @node_types ||= DockerCloud::NodeTypesAPI.new(headers)
+    end
+
+    def node_clusters
+      @node_clusters ||= DockerCloud::NodeClusterAPI.new(headers)
+    end
+
+    def nodes
+      @nodes ||= DockerCloud::NodeAPI.new(headers)
     end
 
     private

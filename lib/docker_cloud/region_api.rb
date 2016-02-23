@@ -7,7 +7,7 @@ module DockerCloud
 
     # Lists all regions of all supported cloud providers.
     # Returns a list of Region objects
-    def list(params={})
+    def all(params={})
       http_get(list_url, params)
     end
 

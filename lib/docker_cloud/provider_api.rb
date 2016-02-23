@@ -5,7 +5,7 @@ module DockerCloud
       "/api/infra/#{DockerCloud::DOCKER_CLOUD_API_VERSION}/provider/#{name}"
     end
 
-    def list(params={})
+    def all(params={})
       http_get(list_url, params)
     end
 
