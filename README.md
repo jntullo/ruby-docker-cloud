@@ -1,6 +1,8 @@
 # DockerCloud
 
 This gem is a ruby implementation of the [Docker Cloud HTTP REST API](https://docs.docker.com/apidocs/docker-cloud/#introduction)
+DockerCloud is not compatible with the TutumAPI. Credit to [ruby-tutum](https://github.com/tutumcloud/ruby-tutum) which much of this
+code has been based off of.
 
 ## Installation
 
