@@ -1,7 +1,6 @@
 module DockerCloud
   class NodeTypeAPI
     def list_url(name = '')
-      puts "#{DockerCloud::DOCKER_CLOUD_API_VERSION}"
       "/nodetype/#{name}"
     end
 

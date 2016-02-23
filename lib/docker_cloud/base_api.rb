@@ -18,7 +18,6 @@ module DockerCloud
     end
 
     def http_get(path, params={})
-      puts url(path)
       query =  "?" + params.map { |k,v| "#{k}=#{v}"}.join("&")
       full_path = path
       full_path += query unless params.empty?
