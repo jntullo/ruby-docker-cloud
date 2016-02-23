@@ -3,12 +3,20 @@ require 'rest-client'
 module DockerCloud
   class BaseAPI
     attr_reader :headers
+    attr_reader :type
 
     BASE_API_PATH = 'https://cloud.docker.com/'
     API_VERSION = 'v1'
 
-    def initialize(headers)
+    enum type: {
+        infrastructure: 'infra',
+        repository: 'repo',
+        application: 'app'
+    }
+
+    def initialize(headers, type)
       @headers = headers
+      @type = type
     end
 
     def url(path)
