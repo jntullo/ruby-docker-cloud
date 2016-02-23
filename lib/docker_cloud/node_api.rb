@@ -1,7 +1,7 @@
 module DockerCloud
   class NodeAPI < DockerCloud::BaseAPI
     def list_url(params = '')
-      "/api/infra/#{DockerCloud::DOCKER_CLOUD_API_VERSION}/node/#{params}"
+      "/node/#{params}"
     end
 
     def all(params={})

@@ -1,24 +1,23 @@
 module DockerCloud
-  class StackAPI < DockerCloud::BaseAPI
-    def url(name = '')
-      "/stack/#{name}"
+  class ServiceAPI < DockerCloud::BaseAPI
+    def url(params = '')
+      "/service/#{params}"
     end
 
     def all
-      http_get(url)
+      http_get(list_url)
+    end
+
+    def create(params)
+      http_post(url, params)
     end
 
     def get(uuid)
       http_get(url(uuid))
     end
 
-
-    def create(params)
-      http_post(url, params)
-    end
-
-    def export(uuid)
-      url = "#{uuid}/export/"
+    def logs(uuid)
+      url = "#{uuid}/logs"
       http_get(url(url))
     end
 
@@ -26,18 +25,18 @@ module DockerCloud
       http_patch(url(uuid), params)
     end
 
-    def stop(uuid)
-      url = "#{uuid}/stop"
+    def start(uuid)
+      url = "#{uuid}/start/"
       http_post(url(url))
     end
 
-    def start(uuid)
-      url = "#{uuid}/start"
+    def stop(uuid)
+      url = "#{uuid}/stop/"
       http_post(url(url))
     end
 
     def redeploy(uuid)
-      url = "#{uuid}/redeploy"
+      url = "#{uuid}/redeploy/"
       http_post(url(url))
     end
 

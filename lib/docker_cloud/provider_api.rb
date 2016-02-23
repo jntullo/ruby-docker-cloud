@@ -1,7 +1,7 @@
 module DockerCloud
   class ProviderAPI < DockerCloud::BaseAPI
     def list_url(name = '')
-      "/api/infra/#{DockerCloud::DOCKER_CLOUD_API_VERSION}/provider/#{name}"
+      "/provider/#{name}"
     end
 
     def all(params={})

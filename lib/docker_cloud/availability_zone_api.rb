@@ -1,8 +1,7 @@
 module DockerCloud
   class AvailabilityZoneAPI < DockerCloud::BaseAPI
     def list_url(zone = '')
-      puts "#{DockerCloud::DOCKER_CLOUD_API_VERSION}"
-      "/api/infra/#{DockerCloud::DOCKER_CLOUD_API_VERSION}/az/#{zone}"
+      "/az/#{zone}"
     end
 
     # Lists all availability zones from all regions of supported cloud providers

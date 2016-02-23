@@ -1,7 +1,7 @@
 module DockerCloud
   class NodeClusterAPI
     def url(params = '')
-      "api/infra/#{DockderCloud::DOCKER_CLOUD_API_VERSION}/nodecluster/#{params}"
+      "/nodecluster/#{params}"
     end
 
     def all(params={})
