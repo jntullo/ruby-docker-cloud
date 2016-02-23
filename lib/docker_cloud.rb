@@ -7,6 +7,7 @@ require 'docker_cloud/node_type_api'
 require 'docker_cloud/provider'
 require 'docker_cloud/node_cluster_api'
 require 'docker_cloud/node_api'
+require 'docker_cloud/external_repository_api'
 
 module DockerCloud
   class Client
@@ -26,28 +27,34 @@ module DockerCloud
     end
 
     def providers
-      @providers ||= DockerCloud::ProviderAPI.new(headers)
+      @providers ||= DockerCloud::ProviderAPI.new(headers, :infrastructure)
     end
 
     def regions
-      @regions ||= DockerCloud::RegionAPI.new(headers)
+      @regions ||= DockerCloud::RegionAPI.new(headers, :infrastructure)
     end
 
     def availability_zones
-      @availability_zones ||= DockerCloud::AvailabilityZoneAPI.new(headers)
+      @availability_zones ||= DockerCloud::AvailabilityZoneAPI.new(headers, :infrastructure)
     end
 
     def node_types
-      @node_types ||= DockerCloud::NodeTypesAPI.new(headers)
+      @node_types ||= DockerCloud::NodeTypesAPI.new(headers, :infrastructure)
     end
 
     def node_clusters
-      @node_clusters ||= DockerCloud::NodeClusterAPI.new(headers)
+      @node_clusters ||= DockerCloud::NodeClusterAPI.new(headers, :infrastructure)
     end
 
     def nodes
-      @nodes ||= DockerCloud::NodeAPI.new(headers)
+      @nodes ||= DockerCloud::NodeAPI.new(headers, :infrastructure)
     end
+
+    def external_respositories
+      @repositories ||= DockerCloud::ExternalRepositoryAPI.new(headers, :repository)
+    end
+
+    def stacks
 
     private
 
