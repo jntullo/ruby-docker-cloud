@@ -17,5 +17,17 @@ module DockerCloud
 
     private
 
+    def format_object(response, type)
+      type = Object.const_get "DockerCloud::#{type}"
+      if response.kind_of?(Array)
+        formatted = []
+        response.each do |obj|
+          formatted.push(type.new(obj, client))
+        end
+      else
+        formatted = type.new(response, client)
+      end
+      formatted
+    end
   end
 end

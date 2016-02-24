@@ -1,20 +1,25 @@
 module DockerCloud
   class StackAPI < DockerCloud::BaseAPI
+    TYPE = 'Stack'
+
     def resource_url(name = '')
       "/stack/#{name}"
     end
 
     def all(params = {})
-      http_get(resource_url, params)
+      response = http_get(resource_url, params)
+      format_object(response, TYPE)
     end
 
     def get(uuid)
-      http_get(resource_url(uuid))
+      response = http_get(resource_url(uuid))
+      format_object(response, TYPE)
     end
 
 
     def create(params)
-      http_post(resource_url, params)
+      response = http_post(resource_url, params)
+      format_object(response, TYPE)
     end
 
     def export(uuid)
@@ -23,7 +28,8 @@ module DockerCloud
     end
 
     def update(uuid, params)
-      http_patch(resource_url(uuid), params)
+      response = http_patch(resource_url(uuid), params)
+      format_object(response, TYPE)
     end
 
     def stop(uuid)

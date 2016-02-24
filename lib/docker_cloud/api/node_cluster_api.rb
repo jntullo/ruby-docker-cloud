@@ -1,11 +1,14 @@
 module DockerCloud
   class NodeClusterAPI < DockerCloud::BaseAPI
+    TYPE = 'NodeCluster'
+
     def resource_url(params = '')
       "/nodecluster/#{params}"
     end
 
     def all(params={})
-      http_get(resource_url, params)
+      response = http_get(resource_url, params)
+      format_object(response, TYPE)
     end
 
     # Create Params:
@@ -18,15 +21,18 @@ module DockerCloud
     # tags (optional): default []
     # provider_options
     def create(params)
-      http_post(resource_url, params)
+      response = http_post(resource_url, params)
+      format_object(response, TYPE)
     end
 
     def get(uuid)
-      http_get(resource_url(uuid))
+      response = http_get(resource_url(uuid))
+      format_object(response, TYPE)
     end
 
     def update(uuid, params)
-      http_patch(resource_url(uuid), params)
+      response = http_patch(resource_url(uuid), params)
+      format_object(response, TYPE)
     end
 
     def deploy(uuid)

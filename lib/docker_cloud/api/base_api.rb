@@ -2,6 +2,7 @@ require 'rest-client'
 
 module DockerCloud
   class BaseAPI
+    include DockerCloud::Helpers
     attr_reader :headers, :type, :client
 
     BASE_API_PATH = 'https://cloud.docker.com/api'

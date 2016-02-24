@@ -1,4 +1,5 @@
 # types
+require 'docker_cloud/helpers'
 require 'docker_cloud/base_object'
 require 'docker_cloud/availability_zone'
 require 'docker_cloud/version'
@@ -8,7 +9,6 @@ require 'docker_cloud/region'
 require 'docker_cloud/node_type'
 require 'docker_cloud/external_repository'
 require 'docker_cloud/registry'
-require 'docker_cloud/helpers'
 
 # api clients
 require 'docker_cloud/api/base_api'
