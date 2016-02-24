@@ -1,15 +1,19 @@
 module DockerCloud
   class ContainerAPI < DockerCloud::BaseAPI
+    TYPE = 'Container'
+
     def resource_url(params = '')
       "/container/#{params}"
     end
 
     def all(params = {})
-      http_get(resource_url, params)
+      response = http_get(resource_url, params)
+      format_object(response, TYPE)
     end
 
     def get(uuid)
       http_get(resource_url(uuid))
+      format_object(response, TYPE)
     end
 
     def start(uuid)

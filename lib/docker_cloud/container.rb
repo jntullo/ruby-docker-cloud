@@ -51,6 +51,5 @@ module DockerCloud
     def net; info[:net]; end
     def pid; info[:pid]; end
     def container_ports; @container_ports ||= ContainerPorts.new(info[:container_ports]); end
-
   end
 end

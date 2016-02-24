@@ -1,19 +1,19 @@
 module DockerCloud
   class NodeAPI < DockerCloud::BaseAPI
+    TYPE = 'Node'
+
     def resource_url(params = '')
       "/node/#{params}"
     end
 
     def all(params={})
-      http_get(resource_url, params)
+      response = http_get(resource_url, params)
+      format_object(response, TYPE)
     end
 
     def get(uuid)
-      http_get(resource_url(uuid))
-    end
-
-    def deploy_url(uuid)
-      "#{uuid}/deploy/"
+      response = http_get(resource_url(uuid))
+      format_object(response, TYPE)
     end
 
     def deploy(uuid)
