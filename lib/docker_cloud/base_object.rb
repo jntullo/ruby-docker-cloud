@@ -1,5 +1,6 @@
 module DockerCloud
   class BaseObject
+    include DockerCloud::Helpers
     attr_accessor :uuid, :resource_uri
 
     def initialize(response, client)
