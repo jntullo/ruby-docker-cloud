@@ -1,15 +1,15 @@
 module DockerCloud
   class NodeAPI < DockerCloud::BaseAPI
-    def list_url(params = '')
+    def resource_url(params = '')
       "/node/#{params}"
     end
 
     def all(params={})
-      http_get(url, params)
+      http_get(resource_url, params)
     end
 
     def get(uuid)
-      http_get(url(uuid))
+      http_get(resource_url(uuid))
     end
 
     def deploy_url(uuid)
@@ -17,11 +17,11 @@ module DockerCloud
     end
 
     def deploy(uuid)
-      http_post(url("#{uuid}/deploy"))
+      http_post(resource_url("#{uuid}/deploy"))
     end
 
     def terminate(uuid)
-      http_delete(url(uuid))
+      http_delete(resource_url(uuid))
     end
   end
 end

@@ -10,10 +10,14 @@ require 'docker_cloud/external_repository_api'
 require 'docker_cloud/service_api'
 require 'docker_cloud/container_api'
 require 'docker_cloud/stack_api'
+require 'docker_cloud/base_object'
+require 'docker_cloud/provider'
+require 'docker_cloud/region'
+require 'docker_cloud/node_type'
 
 module DockerCloud
   class Client
-    attr_reader :username, :api_key
+    attr_reader :username
 
     class ApiType
       INFRASTRUCTURE =  'infra'
@@ -35,49 +39,53 @@ module DockerCloud
     end
 
     def providers
-      @providers ||= DockerCloud::ProviderAPI.new(headers, ApiType::INFRASTRUCTURE)
+      @providers ||= DockerCloud::ProviderAPI.new(headers, ApiType::INFRASTRUCTURE, self)
     end
 
     def regions
-      @regions ||= DockerCloud::RegionAPI.new(headers, ApiType::INFRASTRUCTURE)
+      @regions ||= DockerCloud::RegionAPI.new(headers, ApiType::INFRASTRUCTURE, self)
     end
 
     def availability_zones
-      @availability_zones ||= DockerCloud::AvailabilityZoneAPI.new(headers, ApiType::INFRASTRUCTURE)
+      @availability_zones ||= DockerCloud::AvailabilityZoneAPI.new(headers, ApiType::INFRASTRUCTURE, self)
     end
 
     def node_types
-      @node_types ||= DockerCloud::NodeTypeAPI.new(headers, ApiType::INFRASTRUCTURE)
+      @node_types ||= DockerCloud::NodeTypeAPI.new(headers, ApiType::INFRASTRUCTURE, self)
     end
 
     def node_clusters
-      @node_clusters ||= DockerCloud::NodeClusterAPI.new(headers, ApiType::INFRASTRUCTURE)
+      @node_clusters ||= DockerCloud::NodeClusterAPI.new(headers, ApiType::INFRASTRUCTURE, self)
     end
 
     def nodes
-      @nodes ||= DockerCloud::NodeAPI.new(headers, ApiType::INFRASTRUCTURE)
+      @nodes ||= DockerCloud::NodeAPI.new(headers, ApiType::INFRASTRUCTURE, self)
     end
 
     def external_repositories
-      @repositories ||= DockerCloud::ExternalRepositoryAPI.new(headers, ApiType::REPOSITORY)
+      @repositories ||= DockerCloud::ExternalRepositoryAPI.new(headers, ApiType::REPOSITORY, self)
     end
 
     def stacks
-      @stacks ||= DockerCloud::StackAPI.new(headers, ApiType::APPLICATION)
+      @stacks ||= DockerCloud::StackAPI.new(headers, ApiType::APPLICATION, self)
     end
 
     def services
-      @services ||= DockerCloud::ServiceAPI.new(headers, ApiType::APPLICATION)
+      @services ||= DockerCloud::ServiceAPI.new(headers, ApiType::APPLICATION, self)
     end
 
     def containers
-      @containers ||= DockerCloud::ContainerAPI.new(headers, ApiType::APPLICATION)
+      @containers ||= DockerCloud::ContainerAPI.new(headers, ApiType::APPLICATION, self)
     end
 
     private
 
+    def api_key
+      @api_key
+    end
+
     def authorization
-      @auth ||= "Basic #{Base64.strict_encode64(@username + ':' + @api_key)}"
+      @auth ||= "Basic #{Base64.strict_encode64(@username + ':' + api_key)}"
     end
   end
 end

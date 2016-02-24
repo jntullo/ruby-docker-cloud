@@ -1,13 +1,17 @@
 module DockerCloud
-  class Provider
-    attr_accessor :resource_uri, :name, :label, :regions, :available
+  class Provider < DockerCloud::BaseObject
+    attr_accessor :name, :label, :regions, :available
 
-    def initialize(body)
-      @resource_uri = body['resource_uri']
-      @name = body['name']
-      @label = body['label']
-      @regions = body['regions']
-      @available = body['available']
+    def name; info[:name]; end
+
+    def label; info[:label]; end
+
+    def resource_uri; info[:resource_uri]; end
+
+    def available; info[:available]; end
+
+    def regions
+       @regions ||= client.regions.all(provider: resource_uri)
     end
   end
 end
