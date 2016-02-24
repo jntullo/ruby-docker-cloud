@@ -5,7 +5,7 @@ module DockerCloud
     end
 
     def all
-      http_get(list_url)
+      http_get(url)
     end
 
     def create(params)
