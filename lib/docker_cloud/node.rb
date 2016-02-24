@@ -1,8 +1,7 @@
 module DockerCloud
-  class Node < DockerCloud::BaseObject
+  class Node < DockerCloud::Type
     # TODO: GET THE AVAILABILITY ZONE
     def az_name; @az_name ||= info[:availability_zone]; end
-    def uui; info[:uuid]; end
     def resource_uri; info[:resource_uri]; end
     def external_fqdn; info[:external_fqdn]; end
     def state; info[:state]; end

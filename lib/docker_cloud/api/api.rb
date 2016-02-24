@@ -1,7 +1,7 @@
 require 'rest-client'
 
 module DockerCloud
-  class BaseAPI
+  class API
     include DockerCloud::Helpers
     attr_reader :headers, :type, :client
 

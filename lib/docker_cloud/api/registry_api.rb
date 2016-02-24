@@ -1,5 +1,5 @@
 module DockerCloud
-  class RegistryAPI < DockerCloud::BaseAPI
+  class RegistryAPI < DockerCloud::API
     TYPE = 'Registry'
 
     def resource_url(host = '')

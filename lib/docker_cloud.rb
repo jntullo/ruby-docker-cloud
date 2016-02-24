@@ -1,6 +1,6 @@
 # types
 require 'docker_cloud/helpers'
-require 'docker_cloud/base_object'
+require 'docker_cloud/type'
 require 'docker_cloud/availability_zone'
 require 'docker_cloud/version'
 require 'docker_cloud/container'
@@ -15,7 +15,7 @@ require 'docker_cloud/node_cluster'
 require 'docker_cloud/service'
 
 # api clients
-require 'docker_cloud/api/base_api'
+require 'docker_cloud/api/api'
 require 'docker_cloud/api/provider_api'
 require 'docker_cloud/api/region_api'
 require 'docker_cloud/api/availability_zone_api'

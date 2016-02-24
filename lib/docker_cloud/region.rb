@@ -1,5 +1,5 @@
 module DockerCloud
-  class Region < DockerCloud::BaseObject
+  class Region < DockerCloud::Type
 
     def resource_uri; info[:resource_uri]; end
     def name; info[:name]; end

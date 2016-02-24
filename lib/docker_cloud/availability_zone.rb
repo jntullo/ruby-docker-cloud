@@ -1,5 +1,5 @@
 module DockerCloud
-  class AvailabilityZone < DockerCloud::BaseObject
+  class AvailabilityZone < DockerCloud::Type
     def resource_uri; info[:resource_uri]; end
     def name; info[:name]; end
     def region_name; @region_name ||= info[:region].slice('az/')[1].delete('/'); end

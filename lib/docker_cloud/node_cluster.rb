@@ -1,6 +1,5 @@
 module DockerCloud
-  class NodeCluster < DockerCloud::BaseObject
-    def uuid; info[:uuid]; end
+  class NodeCluster < DockerCloud::Type
     def resource_uri; info[:resource_uri]; end
     def name; info[:name]; end
     def state; info[:state]; end

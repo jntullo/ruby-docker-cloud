@@ -1,6 +1,5 @@
 module DockerCloud
-  class Container < DockerCloud::BaseObject
-    def uuid; info[:uuid]; end
+  class Container < DockerCloud::Type
     def resource_uri; info[:resource_uri]; end
     def image_name; info[:image_name]; end
     def bindings; info[:bindings]; end

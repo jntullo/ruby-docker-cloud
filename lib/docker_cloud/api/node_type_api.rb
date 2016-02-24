@@ -1,5 +1,5 @@
 module DockerCloud
-  class NodeTypeAPI < DockerCloud::BaseAPI
+  class NodeTypeAPI < DockerCloud::API
     TYPE = 'NodeType'
 
     def resource_url(name = '')

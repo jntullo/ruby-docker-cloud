@@ -1,5 +1,5 @@
 module DockerCloud
-  class Provider < DockerCloud::BaseObject
+  class Provider < DockerCloud::Type
     attr_accessor :name, :label, :regions, :available
 
     def name; info[:name]; end

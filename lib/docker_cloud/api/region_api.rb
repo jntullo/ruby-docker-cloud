@@ -1,5 +1,5 @@
 module DockerCloud
-  class RegionAPI < DockerCloud::BaseAPI
+  class RegionAPI < DockerCloud::API
     TYPE = 'Region'
 
     def resource_url(provider_region = '')

@@ -1,5 +1,5 @@
 module DockerCloud
-  class AvailabilityZoneAPI < DockerCloud::BaseAPI
+  class AvailabilityZoneAPI < DockerCloud::API
     def resource_url(zone = '')
       "/az/#{zone}"
     end

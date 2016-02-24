@@ -1,13 +1,13 @@
 module DockerCloud
-  class BaseObject
+  class Type
     include DockerCloud::Helpers
     attr_accessor :uuid, :resource_uri
 
     def initialize(response, client)
       @info = response
       @client = client
-      @uuid = @info[:uuid]
-      @resource_uri = @info[:uuid]
+      @uuid = info[:uuid]
+      @resource_uri = info[:uuid]
     end
 
     private
