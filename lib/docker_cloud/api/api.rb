@@ -46,5 +46,12 @@ module DockerCloud
       hash.delete(:meta)
       hash[:objects].nil? ? hash : hash[:objects]
     end
+
+    def get_from_uri(uri)
+      uri = BASE_API_PATH + uri.split('/api')[1]
+      response = RestClient.get(uri, headers)
+      response = parse(response)
+      format_object(response, self.class::TYPE)
+    end
   end
 end

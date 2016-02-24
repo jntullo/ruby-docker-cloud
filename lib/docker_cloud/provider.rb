@@ -11,7 +11,13 @@ module DockerCloud
     def available; info[:available]; end
 
     def regions
-       @regions ||= client.regions.all(provider: resource_uri)
+      if @regions.nil?
+        @regions = []
+        info[:regions].each do |region|
+          @regions.push(client.regions.get_from_uri(region))
+        end
+      end
+      @regions
     end
   end
 end

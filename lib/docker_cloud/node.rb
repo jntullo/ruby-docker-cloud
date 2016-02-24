@@ -6,11 +6,21 @@ module DockerCloud
     def external_fqdn; info[:external_fqdn]; end
     def state; info[:state]; end
 
-    # TODO: GET THE NODE CLUSTER
-    def node_cluster; info[:node_cluster]; end
-    # TODO: GET THE NODE TYPE
-    def node_type; info[:node_type]; end
-    def region; info[:region]; end
+    # def node_cluster; info[:node_cluster]; end
+    def node_cluster
+      @node_cluster ||= client.node_clusters.get_from_uri(info[:node_cluster])
+    end
+
+    # def node_type; info[:node_type]; end
+    def node_type
+      @node_type ||= client.node_type.get_from_uri(info[:node_type])
+    end
+
+    # def region; info[:region]; end
+    def region
+      @region ||= client.regions.get_from_uri(info[:region])
+    end
+
     def docker_execdriver; info[:docker_execdriver]; end
     def docker_version; info[:docker_version]; end
     def cpu; info[:cpu]; end

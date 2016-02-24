@@ -16,10 +16,23 @@ module DockerCloud
     def current_num_containers; info[:current_num_containers]; end
     def running_num_containers; info[:running_num_containers]; end
     def stopped_num_containers; info[:stopped_run_containers]; end
-    # TODO: Get the Stack
-    def stack; info[:stack]; end
-    # TOOD: GET THE CONTAINERS
-    def containers; info[:containers]; end
+
+    # def stack; info[:stack]; end
+    def stack
+      @stack ||= client.stacks.find_by_uri(info[:stack])
+    end
+
+    # def containers; info[:containers]; end
+    def containers
+      if @containers.nil?
+        @containers = []
+        info[:containers].each do |uri|
+          @containers.push(client.containers.get_by_uri(uri))
+        end
+      end
+      @containers
+    end
+
     def container_ports; @container_ports ||= ContainerPorts.new(info[:container_ports]); end
     def container_env_vars; info[:container_envvars]; end
     def labels; info[:labels]; end
