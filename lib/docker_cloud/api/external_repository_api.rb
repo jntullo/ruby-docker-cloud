@@ -3,7 +3,7 @@ module DockerCloud
     TYPE = 'ExternalRepository'
 
     def resource_url(name = '')
-      "/respository/#{name}"
+      "/repository/#{name}"
     end
 
     def all(params = {})
