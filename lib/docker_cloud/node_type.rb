@@ -8,7 +8,7 @@ module DockerCloud
     def available; info[:available]; end
 
     def provider
-      @provider ||= client.providers.get_from_uri(info[:provider])
+      @provider ||= client.providers.get_from_uri(info[:provider]) unless info[:provider].nil?
     end
 
     def availability_zones

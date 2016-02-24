@@ -4,11 +4,9 @@ module DockerCloud
     def image_name; info[:image_name]; end
     def bindings; info[:bindings]; end
     def name; info[:name]; end
-    # this is the resource_uri
-    def node_uuid; @node_uuid ||= node_uuid_from_uri(info[:node]); end
     # def service; info[:service]; end
     def service
-      @service ||= client.services.get_from_uri(info[:service])
+      @service ||= client.services.get_from_uri(info[:service]) unless info[:service].nil?
     end
     def public_dns; info[:public_dns]; end
     def state; info[:state]; end
@@ -56,8 +54,7 @@ module DockerCloud
     def container_ports; @container_ports ||= ContainerPorts.new(info[:container_ports]); end
 
     def node
-      @node ||= client.nodes.get_from_uri(info[:node])
+      @node ||= client.nodes.get_from_uri(info[:node]) unless info[:node].nil?
     end
-
   end
 end

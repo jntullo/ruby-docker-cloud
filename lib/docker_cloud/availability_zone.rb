@@ -5,7 +5,7 @@ module DockerCloud
     def available; info[:available]; end
 
     def region
-      @region ||= client.region.get_from_url(info[:region])
+      @region ||= client.regions.get_from_uri(info[:region]) unless info[:region].nil?
     end
   end
 end

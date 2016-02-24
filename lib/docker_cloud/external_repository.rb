@@ -6,7 +6,7 @@ module DockerCloud
     # def registry; info[:registry]; end
 
     def registry
-      @registry ||= client.registries.get_from_uri(info[:registry])
+      @registry ||= client.registries.get_from_uri(info[:registry]) unless info[:registry].nil?
     end
   end
 end

@@ -8,17 +8,17 @@ module DockerCloud
 
     # def node_cluster; info[:node_cluster]; end
     def node_cluster
-      @node_cluster ||= client.node_clusters.get_from_uri(info[:node_cluster])
+      @node_cluster ||= client.node_clusters.get_from_uri(info[:node_cluster]) unless info[:node_cluster].nil?
     end
 
     # def node_type; info[:node_type]; end
     def node_type
-      @node_type ||= client.node_type.get_from_uri(info[:node_type])
+      @node_type ||= client.node_type.get_from_uri(info[:node_type]) unless info[:node_type].nil?
     end
 
     # def region; info[:region]; end
     def region
-      @region ||= client.regions.get_from_uri(info[:region])
+      @region ||= client.regions.get_from_uri(info[:region])  unless info[:region].nil?
     end
 
     def docker_execdriver; info[:docker_execdriver]; end

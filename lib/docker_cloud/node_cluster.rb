@@ -14,7 +14,7 @@ module DockerCloud
     def nodes
       if @nodes.nil?
         @nodes = []
-        info[:nodes].eeach do |node_uri|
+        info[:nodes].each do |node_uri|
           @nodes.push(client.nodes.get_from_uri(node_uri))
         end
       end
