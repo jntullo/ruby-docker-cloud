@@ -9,6 +9,7 @@ require 'docker_cloud/node_api'
 require 'docker_cloud/external_repository_api'
 require 'docker_cloud/service_api'
 require 'docker_cloud/container_api'
+require 'docker_cloud/stack_api'
 
 module DockerCloud
   class Client

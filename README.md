@@ -58,6 +58,16 @@ az.all
 # az.get(<provider name>, <region name>, <az name>)
 # example:
 az.get('softlayer', 'ams03', 'ap-northeast-1a')
+
+# Node Types
+node_types = client.node_types
+
+# List all Node Types
+node_types.all
+
+# Get a node type
+# node_types.get(<provider_name>, <name>)
+node_types.get('softlayer', '1x2.0GHzCore-2GB')
 ```
 
 ## Contributing

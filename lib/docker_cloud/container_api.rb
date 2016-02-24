@@ -1,5 +1,5 @@
 module DockerCloud
-  class ContainerAPI
+  class ContainerAPI < DockerCloud::BaseAPI
     def url(params = '')
       "/container/#{params}"
     end
