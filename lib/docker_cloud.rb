@@ -9,6 +9,10 @@ require 'docker_cloud/region'
 require 'docker_cloud/node_type'
 require 'docker_cloud/external_repository'
 require 'docker_cloud/registry'
+require 'docker_cloud/stack'
+require 'docker_cloud/node'
+require 'docker_cloud/node_cluster'
+require 'docker_cloud/service'
 
 # api clients
 require 'docker_cloud/api/base_api'
@@ -22,6 +26,7 @@ require 'docker_cloud/api/external_repository_api'
 require 'docker_cloud/api/service_api'
 require 'docker_cloud/api/container_api'
 require 'docker_cloud/api/stack_api'
+require 'docker_cloud/api/registry_api'
 
 module DockerCloud
   class Client
@@ -29,7 +34,7 @@ module DockerCloud
 
     class ApiType
       INFRASTRUCTURE =  'infra'
-      REPOSITORY =  'repo',
+      REPOSITORY =  'repo'
       APPLICATION =  'app'
     end
 
@@ -68,6 +73,10 @@ module DockerCloud
 
     def nodes
       @nodes ||= DockerCloud::NodeAPI.new(headers, ApiType::INFRASTRUCTURE, self)
+    end
+
+    def registries
+      @registries ||= DockerCloud::RegistryAPI.new(headers, ApiType::REPOSITORY, self)
     end
 
     def external_repositories

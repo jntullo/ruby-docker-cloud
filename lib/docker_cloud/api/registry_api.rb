@@ -8,12 +8,12 @@ module DockerCloud
 
     def all(params = {})
       response = http_get(resource_url, params)
-      format_object(response)
+      format_object(response, TYPE)
     end
 
     def get(host)
       response = http_get(resource_url(host))
-      format_object(response)
+      format_object(response, TYPE)
     end
   end
 end
