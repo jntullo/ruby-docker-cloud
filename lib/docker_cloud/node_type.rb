@@ -1,5 +1,5 @@
 module DockerCloud
-  class NodeType < DockerCloud::BaseObject
+  class NodeType < DockerCloud::Type
     def resource_uri; info[:resource_uri]; end
     def name; info[:name]; end
     def label; info[:label]; end

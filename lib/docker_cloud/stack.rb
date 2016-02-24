@@ -1,6 +1,5 @@
 module DockerCloud
-  class Stack < DockerCloud::BaseObject
-    def uuid; info[:uuid]; end
+  class Stack < DockerCloud::Type
     def resource_uri; info[:uui]; end
     def name; info[:name]; end
     def state; info[:state]; end

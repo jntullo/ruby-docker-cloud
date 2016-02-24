@@ -1,5 +1,5 @@
 module DockerCloud
-  class ExternalRepositoryAPI < DockerCloud::BaseAPI
+  class ExternalRepositoryAPI < DockerCloud::API
     TYPE = 'ExternalRepository'
 
     def resource_url(name = '')

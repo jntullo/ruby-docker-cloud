@@ -1,6 +1,5 @@
 module DockerCloud
-  class Service < DockerCloud::BaseObject
-    def uuid; info[:uuid]; end
+  class Service < DockerCloud::Type
     def resource_uri; info[:resource_uri]; end
     def image_name; info[:image_name]; end
     def name; info[:name]; end

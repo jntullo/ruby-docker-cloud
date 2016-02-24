@@ -1,5 +1,5 @@
 module DockerCloud
-  class NodeClusterAPI < DockerCloud::BaseAPI
+  class NodeClusterAPI < DockerCloud::API
     TYPE = 'NodeCluster'
 
     def resource_url(params = '')

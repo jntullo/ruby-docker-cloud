@@ -1,5 +1,5 @@
 module DockerCloud
-  class Registry < DockerCloud::BaseObject
+  class Registry < DockerCloud::Type
     def resource_uri; info[:resource_uri]; end
     def name; info[:name]; end
     def host; info[:host]; end

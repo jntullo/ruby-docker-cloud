@@ -1,5 +1,5 @@
 module DockerCloud
-  class StackAPI < DockerCloud::BaseAPI
+  class StackAPI < DockerCloud::API
     TYPE = 'Stack'
 
     def resource_url(name = '')

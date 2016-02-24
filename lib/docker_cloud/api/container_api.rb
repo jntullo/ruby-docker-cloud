@@ -1,5 +1,5 @@
 module DockerCloud
-  class ContainerAPI < DockerCloud::BaseAPI
+  class ContainerAPI < DockerCloud::API
     TYPE = 'Container'
 
     def resource_url(params = '')

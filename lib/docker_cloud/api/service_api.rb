@@ -1,5 +1,5 @@
 module DockerCloud
-  class ServiceAPI < DockerCloud::BaseAPI
+  class ServiceAPI < DockerCloud::API
     TYPE = 'Service'
 
     def resource_url(params = '')

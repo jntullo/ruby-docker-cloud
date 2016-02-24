@@ -1,5 +1,5 @@
 module DockerCloud
-  class ProviderAPI < DockerCloud::BaseAPI
+  class ProviderAPI < DockerCloud::API
     TYPE = 'Provider'
 
     def resource_url(name = '')
