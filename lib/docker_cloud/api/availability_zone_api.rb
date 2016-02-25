@@ -1,13 +1,13 @@
 module DockerCloud
   class AvailabilityZoneAPI < DockerCloud::API
-    TYPE = 'AvailabilityZone'
+    TYPE = 'AvailabilityZone'.freeze
     def resource_url(zone = '')
       "/az/#{zone}"
     end
 
     # Lists all availability zones from all regions of supported cloud providers
     # Returns a list of Availability Zone objects
-    def all(params={})
+    def all(params = {})
       response = http_get(resource_url, params)
       format_object(response, TYPE)
     end

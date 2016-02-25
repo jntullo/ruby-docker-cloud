@@ -1,6 +1,6 @@
 module DockerCloud
   class ServiceAPI < DockerCloud::API
-    TYPE = 'Service'
+    TYPE = 'Service'.freeze
 
     def resource_url(params = '')
       "/service/#{params}"

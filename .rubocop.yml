@@ -1,0 +1,43 @@
+AllCops:
+  Exclude:
+    - tmp/**/*
+    - db/**/*
+    - vendor/**/*
+    - bin/**
+    - Guardfile
+
+Rails:
+  Enabled: true
+
+ClassLength:
+  Max: 300
+
+MethodLength:
+  Max: 50
+
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 38
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+GuardClause:
+  Enabled: false
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/ClosingParenthesisIndentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes

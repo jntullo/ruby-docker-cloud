@@ -2,7 +2,7 @@ module DockerCloud
   module Helpers
     class ContainerPorts
       attr_accessor :protocol, :inner_port, :outer_port, :port_name,
-                    :uri_protocol, :endpoint_uri, :published
+        :uri_protocol, :endpoint_uri, :published
 
       def initialize(container_ports)
         @protocol = container_ports[:protocol]
@@ -19,7 +19,7 @@ module DockerCloud
 
     def format_object(response, type)
       type = Object.const_get "DockerCloud::#{type}"
-      if response.kind_of?(Array)
+      if response.is_a?(Array)
         formatted = []
         response.each do |obj|
           formatted.push(type.new(obj, client))

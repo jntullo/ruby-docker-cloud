@@ -1,6 +1,6 @@
 module DockerCloud
   class RegistryAPI < DockerCloud::API
-    TYPE = 'Registry'
+    TYPE = 'Registry'.freeze
 
     def resource_url(host = '')
       "/registry/#{host}"

@@ -33,9 +33,9 @@ module DockerCloud
     attr_reader :username
 
     class ApiType
-      INFRASTRUCTURE =  'infra'
-      REPOSITORY =  'repo'
-      APPLICATION =  'app'
+      INFRASTRUCTURE = 'infra'.freeze
+      REPOSITORY = 'repo'.freeze
+      APPLICATION = 'app'.freeze
     end
 
     def initialize(username, api_key)
@@ -45,9 +45,9 @@ module DockerCloud
 
     def headers
       {
-          'Authorization' => authorization,
-          'Accept' => 'application/json',
-          'Content-Type' => 'application/json'
+        'Authorization' => authorization,
+        'Accept' => 'application/json',
+        'Content-Type' => 'application/json'
       }
     end
 
@@ -80,7 +80,8 @@ module DockerCloud
     end
 
     def external_repositories
-      @repositories ||= DockerCloud::ExternalRepositoryAPI.new(headers, ApiType::REPOSITORY, self)
+      @repositories ||=
+        DockerCloud::ExternalRepositoryAPI.new(headers, ApiType::REPOSITORY, self)
     end
 
     def stacks
@@ -97,9 +98,7 @@ module DockerCloud
 
     private
 
-    def api_key
-      @api_key
-    end
+    attr_reader :api_key
 
     def authorization
       @auth ||= "Basic #{Base64.strict_encode64(@username + ':' + api_key)}"

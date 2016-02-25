@@ -1,6 +1,6 @@
 module DockerCloud
   class ExternalRepositoryAPI < DockerCloud::API
-    TYPE = 'ExternalRepository'
+    TYPE = 'ExternalRepository'.freeze
 
     def resource_url(name = '')
       "/repository/#{name}"

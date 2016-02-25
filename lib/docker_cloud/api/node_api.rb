@@ -1,12 +1,12 @@
 module DockerCloud
   class NodeAPI < DockerCloud::API
-    TYPE = 'Node'
+    TYPE = 'Node'.freeze
 
     def resource_url(params = '')
       "/node/#{params}"
     end
 
-    def all(params={})
+    def all(params = {})
       response = http_get(resource_url, params)
       format_object(response, TYPE)
     end

@@ -1,6 +1,6 @@
 module DockerCloud
   class RegionAPI < DockerCloud::API
-    TYPE = 'Region'
+    TYPE = 'Region'.freeze
 
     def resource_url(provider_region = '')
       "/region/#{provider_region}"

@@ -12,12 +12,8 @@ module DockerCloud
 
     private
 
-    def client
-      @client
-    end
+    attr_reader :client
 
-    def info
-      @info
-    end
+    attr_reader :info
   end
 end

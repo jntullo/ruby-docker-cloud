@@ -1,6 +1,6 @@
 module DockerCloud
   class ContainerAPI < DockerCloud::API
-    TYPE = 'Container'
+    TYPE = 'Container'.freeze
 
     def resource_url(params = '')
       "/container/#{params}"

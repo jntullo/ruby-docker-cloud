@@ -1,6 +1,6 @@
 module DockerCloud
   class NodeTypeAPI < DockerCloud::API
-    TYPE = 'NodeType'
+    TYPE = 'NodeType'.freeze
 
     def resource_url(name = '')
       "/nodetype/#{name}"
@@ -8,7 +8,7 @@ module DockerCloud
 
     # Lists all node types of all supported cloud providers
     # Returns a list of NodeType objects
-    def all(params={})
+    def all(params = {})
       response = http_get(resource_url, params)
       format_object(response, TYPE)
     end

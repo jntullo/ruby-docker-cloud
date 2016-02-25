@@ -1,6 +1,6 @@
 module DockerCloud
   class StackAPI < DockerCloud::API
-    TYPE = 'Stack'
+    TYPE = 'Stack'.freeze
 
     def resource_url(name = '')
       "/stack/#{name}"
@@ -15,7 +15,6 @@ module DockerCloud
       response = http_get(resource_url(uuid))
       format_object(response, TYPE)
     end
-
 
     def create(params)
       response = http_post(resource_url, params)

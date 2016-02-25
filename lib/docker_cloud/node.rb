@@ -1,10 +1,20 @@
 module DockerCloud
   class Node < DockerCloud::Type
-    # TODO: GET THE AVAILABILITY ZONE
-    def az_name; @az_name ||= info[:availability_zone]; end
-    def resource_uri; info[:resource_uri]; end
-    def external_fqdn; info[:external_fqdn]; end
-    def state; info[:state]; end
+    def availability_zone
+      @az ||= client.availability_zones.get_from_uri(info[:availability_zone]) unless info[:availability_zone].nil?
+    end
+
+    def resource_uri
+      info[:resource_uri]
+    end
+
+    def external_fqdn
+      info[:external_fqdn]
+    end
+
+    def state
+      info[:state]
+    end
 
     # def node_cluster; info[:node_cluster]; end
     def node_cluster
@@ -18,24 +28,64 @@ module DockerCloud
 
     # def region; info[:region]; end
     def region
-      @region ||= client.regions.get_from_uri(info[:region])  unless info[:region].nil?
+      @region ||= client.regions.get_from_uri(info[:region]) unless info[:region].nil?
     end
 
-    def docker_execdriver; info[:docker_execdriver]; end
-    def docker_version; info[:docker_version]; end
-    def cpu; info[:cpu]; end
-    def disk; info[:disk]; end
-    def memory; info[:memory]; end
-    def last_metric; info[:memory]; end
-    def num_of_containers; info[:current_num_container]; end
-    def last_seen; info[:last_seen]; end
-    def public_ip; info[:public_ip]; end
-    def tunnel; info[:tunnel]; end
-    def deployed_date; info[:deployed_datetime]; end
-    def destroyed_date; info[:destroyed_datetime]; end
-    def tags; info[:tags]; end
-    def nickname; info[:nickname]; end
-    def last_metric; @last_metric ||= LastMetric.new(info[:last_metric]); end
+    def docker_execdriver
+      info[:docker_execdriver]
+    end
+
+    def docker_version
+      info[:docker_version]
+    end
+
+    def cpu
+      info[:cpu]
+    end
+
+    def disk
+      info[:disk]
+    end
+
+    def memory
+      info[:memory]
+    end
+
+    def num_of_containers
+      info[:current_num_container]
+    end
+
+    def last_seen
+      info[:last_seen]
+    end
+
+    def public_ip
+      info[:public_ip]
+    end
+
+    def tunnel
+      info[:tunnel]
+    end
+
+    def deployed_date
+      info[:deployed_datetime]
+    end
+
+    def destroyed_date
+      info[:destroyed_datetime]
+    end
+
+    def tags
+      info[:tags]
+    end
+
+    def nickname
+      info[:nickname]
+    end
+
+    def last_metric
+      @last_metric ||= LastMetric.new(info[:last_metric])
+    end
 
     class LastMetric
       attr_accessor :cpu, :disk, :memory

@@ -1,6 +1,6 @@
 module DockerCloud
   class ProviderAPI < DockerCloud::API
-    TYPE = 'Provider'
+    TYPE = 'Provider'.freeze
 
     def resource_url(name = '')
       "/provider/#{name}"
