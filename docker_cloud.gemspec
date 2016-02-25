@@ -4,10 +4,10 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'docker_cloud/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'docker-cloud'
-  spec.version       = '0.1.0'
-  spec.authors       = ['jillianntulloADM']
-  spec.email         = ['tullo_jillian@bah.com']
+  spec.name          = 'docker_cloud'
+  spec.version       = DockerCloud::VERSION
+  spec.authors       = ['Jillian Tullo']
+  spec.email         = ['jillian.tullo@gmail.com']
 
   spec.summary       = 'Ruby wrapper for the Docker Cloud HTTP REST API'
   spec.description   = 'Ruby implementation of the HTTP REST API'
