@@ -32,17 +32,17 @@ module DockerCloud
     end
 
     def stop(uuid)
-      url = "#{uuid}/stop"
+      url = "#{uuid}/stop/"
       http_post(resource_url(url))
     end
 
     def start(uuid)
-      url = "#{uuid}/start"
+      url = "#{uuid}/start/"
       http_post(resource_url(url))
     end
 
     def redeploy(uuid)
-      url = "#{uuid}/redeploy"
+      url = "#{uuid}/redeploy/"
       http_post(resource_url(url))
     end
 

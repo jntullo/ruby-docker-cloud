@@ -2,7 +2,7 @@ require 'rest-client'
 
 module DockerCloud
   class API
-    include DockerCloud::Helpers
+    include DockerCloud::Helpers::API
     attr_reader :headers, :type, :client
 
     BASE_API_PATH = 'https://cloud.docker.com/api'.freeze
@@ -32,7 +32,7 @@ module DockerCloud
     end
 
     def http_patch(path, content = {})
-      response = RestClient.patch(url(path), content.to_json, headers)
+      response = RestClient.patch(url("#{path}/"), content.to_json, headers)
       parse(response)
     end
 

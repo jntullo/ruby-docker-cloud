@@ -1,11 +1,13 @@
 module DockerCloud
   class Service < DockerCloud::Type
-    def resource_uri
-      info[:resource_uri]
-    end
+    include DockerCloud::Helpers::Services
 
     def image_name
       info[:image_name]
+    end
+
+    def image
+      @image ||= client.images.get_from_uri(info[:image_tag]) unless info[:image_tag].nil?
     end
 
     def name
@@ -71,17 +73,13 @@ module DockerCloud
 
     # def containers; info[:containers]; end
     def containers
-      if @containers.nil?
+      if @containers.nil? && !info[:containers].nil?
         @containers = []
         info[:containers].each do |uri|
-          @containers.push(client.containers.get_by_uri(uri))
+          @containers.push(client.containers.get_from_uri(uri))
         end
       end
       @containers
-    end
-
-    def container_ports
-      @container_ports ||= ContainerPorts.new(info[:container_ports])
     end
 
     def container_env_vars
@@ -200,10 +198,6 @@ module DockerCloud
       info[:autodestroy]
     end
 
-    def roles
-      info[:roles]
-    end
-
     def link_variables
       info[:link_variables]
     end
@@ -230,6 +224,12 @@ module DockerCloud
 
     def nickname
       info[:nickname]
+    end
+
+    private
+
+    def api
+      client.services
     end
   end
 end

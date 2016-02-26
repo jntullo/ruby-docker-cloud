@@ -1,5 +1,7 @@
 module DockerCloud
   class Container < DockerCloud::Type
+    include DockerCloud::Helpers::Services
+
     def resource_uri
       info[:resource_uri]
     end
@@ -161,20 +163,12 @@ module DockerCloud
       info[:autodestroy]
     end
 
-    def roles
-      info[:roles]
-    end
-
     def linked_to_container
       info[:linked_to_container]
     end
 
     def link_variables
       info[:link_variables]
-    end
-
-    def privileged
-      info[privileged]
     end
 
     def read_only
@@ -193,12 +187,14 @@ module DockerCloud
       info[:pid]
     end
 
-    def container_ports
-      @container_ports ||= ContainerPorts.new(info[:container_ports])
-    end
-
     def node
       @node ||= client.nodes.get_from_uri(info[:node]) unless info[:node].nil?
+    end
+
+    private
+
+    def api
+      client.containers
     end
   end
 end

@@ -22,7 +22,7 @@ module DockerCloud
     end
 
     def logs(uuid)
-      url = "#{uuid}/logs"
+      url = "#{uuid}/logs/"
       http_get(resource_url(url))
     end
 
@@ -33,21 +33,25 @@ module DockerCloud
 
     def start(uuid)
       url = "#{uuid}/start/"
-      http_post(resource_url(url))
+      response = http_post(resource_url(url))
+      format_object(response, TYPE)
     end
 
     def stop(uuid)
       url = "#{uuid}/stop/"
-      http_post(resource_url(url))
+      response = http_post(resource_url(url))
+      format_object(response, TYPE)
     end
 
     def redeploy(uuid)
       url = "#{uuid}/redeploy/"
-      http_post(resource_url(url))
+      response = http_post(resource_url(url))
+      format_object(response, TYPE)
     end
 
     def terminate(uuid)
-      http_delete(resource_url(uuid))
+      response = http_delete(resource_url(uuid))
+      format_object(response, TYPE)
     end
   end
 end

@@ -1,5 +1,8 @@
+# helpers
+require 'docker_cloud/helpers/services'
+require 'docker_cloud/helpers/api'
+
 # types
-require 'docker_cloud/helpers'
 require 'docker_cloud/type'
 require 'docker_cloud/availability_zone'
 require 'docker_cloud/version'

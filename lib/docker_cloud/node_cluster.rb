@@ -22,7 +22,7 @@ module DockerCloud
     end
 
     def nodes
-      if @nodes.nil?
+      if @nodes.nil? && !info[:nodes].nil?
         @nodes = []
         info[:nodes].each do |node_uri|
           @nodes.push(client.nodes.get_from_uri(node_uri))
@@ -62,6 +62,24 @@ module DockerCloud
 
     def nickname
       info[:nickname]
+    end
+
+    def deploy
+      api.deploy(uuid)
+    end
+
+    def terminate
+      api.terminate(uuid)
+    end
+
+    def update(params)
+      api.update(uuid, params)
+    end
+
+    private
+
+    def api
+      client.node_clusters
     end
   end
 end
