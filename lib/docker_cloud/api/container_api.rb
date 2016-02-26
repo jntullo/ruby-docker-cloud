@@ -12,27 +12,31 @@ module DockerCloud
     end
 
     def get(uuid)
-      http_get(resource_url(uuid))
+      response = http_get(resource_url(uuid))
       format_object(response, TYPE)
     end
 
     def start(uuid)
       url = "#{uuid}/start/"
-      http_post(resource_url(url))
+      response = http_post(resource_url(url))
+      format_object(response, TYPE)
     end
 
     def stop(uuid)
       url = "#{uuid}/stop/"
-      http_post(resource_url(url))
+      response = http_post(resource_url(url))
+      format_object(response, TYPE)
     end
 
     def logs(uuid)
       url = "#{uuid}/logs/"
-      http_get(resource_url(url))
+      response = http_get(resource_url(url))
+      format_object(response, TYPE)
     end
 
     def terminate(uuid)
-      http_terminate(resource_url(uuid))
+      response = http_delete(resource_url(uuid))
+      format_object(response, TYPE)
     end
   end
 end

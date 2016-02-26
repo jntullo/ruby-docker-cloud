@@ -1,7 +1,6 @@
 module DockerCloud
   class Type
-    include DockerCloud::Helpers
-    attr_accessor :uuid, :resource_uri
+    attr_reader :info
 
     def initialize(response, client)
       @info = response
@@ -10,10 +9,21 @@ module DockerCloud
       @resource_uri = info[:uuid]
     end
 
+    def reload
+      refreshed = api.get_from_uri(resource_uri)
+      @info = refreshed.info
+    end
+
+    def uuid
+      info[:uuid]
+    end
+
+    def resource_uri
+      info[:resource_uri]
+    end
+
     private
 
     attr_reader :client
-
-    attr_reader :info
   end
 end

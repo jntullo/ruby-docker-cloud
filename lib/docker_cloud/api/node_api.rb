@@ -17,11 +17,19 @@ module DockerCloud
     end
 
     def deploy(uuid)
-      http_post(resource_url("#{uuid}/deploy"))
+      http_post(resource_url("#{uuid}/deploy/"))
     end
 
     def terminate(uuid)
       http_delete(resource_url(uuid))
+    end
+
+    def health_check(uuid)
+      http_post(resource_url("#{uuid}/health-check/"))
+    end
+
+    def docker_upgrade(uuid)
+      http_post(resource_url("#{uuid}/docker-upgrade/"))
     end
   end
 end

@@ -95,5 +95,23 @@ module DockerCloud
         @memory = response[:memory]
       end
     end
+
+    def health_check
+      api.health_check(uuid)
+    end
+
+    def terminate
+      api.terminate(uuid)
+    end
+
+    def docker_upgrade
+      api.docker_upgrade(uuid)
+    end
+
+    private
+
+    def api
+      client.nodes
+    end
   end
 end

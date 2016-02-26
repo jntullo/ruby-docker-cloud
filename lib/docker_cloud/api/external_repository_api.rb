@@ -27,7 +27,7 @@ module DockerCloud
     end
 
     def delete(name, user, image)
-      url = "#{name}/#{user}/#{image}"
+      url = "#{name}/#{user}/#{image}/"
       http_delete(resource_url(url))
     end
   end
