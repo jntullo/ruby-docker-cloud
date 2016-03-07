@@ -50,6 +50,7 @@ module DockerCloud
     end
 
     def terminate(uuid)
+      uuid = "#{uuid}/"
       response = http_delete(resource_url(uuid))
       format_object(response, TYPE)
     end
