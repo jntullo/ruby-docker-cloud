@@ -31,6 +31,9 @@ require 'docker_cloud/api/container_api'
 require 'docker_cloud/api/stack_api'
 require 'docker_cloud/api/registry_api'
 
+# ruby libs
+require 'base64'
+
 module DockerCloud
   class Client
     attr_reader :username
