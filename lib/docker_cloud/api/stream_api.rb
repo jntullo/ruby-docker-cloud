@@ -14,13 +14,18 @@ module DockerCloud
       @listeners[type.to_sym] = block
     end
 
-    def run!
+    def run!(&block)
       EventMachine.kqueue = true if EventMachine.kqueue?
-      
+
       EM.run {
         @shutting_down = false
         Signal.trap('INT')  { signal_handler('INT') }
         Signal.trap('TERM') { signal_handler('TERM') }
+
+        if block_given?
+          block.call
+        end
+
         connect
       }
     end
