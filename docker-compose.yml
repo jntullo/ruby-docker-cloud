@@ -1,0 +1,5 @@
+ruby_docker_cloud:
+  build: .
+  command: bundle exec rake spec
+  volumes:
+    - .:/workspace
