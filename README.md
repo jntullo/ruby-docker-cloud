@@ -68,9 +68,43 @@ node_types.all
 # Get a node type
 # node_types.get(<provider_name>, <name>)
 node_types.get('softlayer', '1x2.0GHzCore-2GB')
+
+# Events
+events = client.events
+
+# Event listeners
+events.on(:open) do |event|
+  puts "OPEN"
+end
+
+events.on(:close) do |event|
+  puts "Code: #{event.code}"
+  puts "Reason: #{event.reason}"
+end
+
+events.on(:error) do |event|
+  puts "Message: #{event.message}"
+end
+
+events.on(:message) do |event|
+  puts "Type: #{event.type}"
+  puts "Action: #{event.action}"
+  puts "Parents: #{event.parents}"
+  puts "Resource URI: #{event.resource_uri}"
+  puts "State: #{event.state}"
+  puts "UUID: #{event.uuid}"
+  puts "Datetime: #{event.datetime}"
+end
+
+events.run! # This will start an EventMachine event loop
+
 ```
 
 ## Running specs
+
+```
+rake spec
+```
 
 if you are using docker compose then:
 
