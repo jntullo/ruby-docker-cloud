@@ -20,4 +20,14 @@ describe DockerCloud::Client do
       end
     end
   end
+
+  describe "#events" do
+    subject { described_class.new('foo', 'bar').events }
+
+    context "Events API" do
+      it "will return an Events API object" do
+        expect(subject).to expect(@object).to be_a DockerCloud::EventsAPI
+      end
+    end
+  end
 end
