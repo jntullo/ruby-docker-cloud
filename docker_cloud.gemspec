@@ -21,6 +21,8 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'rest-client', '~> 1.8.0'
   spec.add_runtime_dependency 'json', '~> 1.8.1'
+  spec.add_runtime_dependency 'faye-websocket', '~> 0.10.3'
+
 
   spec.add_development_dependency 'codeclimate-test-reporter', '~> 0.4.1'
   spec.add_development_dependency 'rspec', '~> 3.1.0'
