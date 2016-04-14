@@ -107,7 +107,7 @@ module DockerCloud
     attr_reader :api_key
 
     def authorization
-      @auth ||= "Basic #{Base64.strict_encode64(@username + ':' + api_key)}"
+      @auth ||= ENV['DOCKERCLOUD_AUTH'] || "Basic #{Base64.strict_encode64(@username + ':' + api_key)}"
     end
   end
 end
