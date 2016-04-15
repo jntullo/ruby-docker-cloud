@@ -16,9 +16,11 @@ require 'docker_cloud/stack'
 require 'docker_cloud/node'
 require 'docker_cloud/node_cluster'
 require 'docker_cloud/service'
+require 'docker_cloud/event'
 
 # api clients
 require 'docker_cloud/api/api'
+require 'docker_cloud/api/stream_api'
 require 'docker_cloud/api/provider_api'
 require 'docker_cloud/api/region_api'
 require 'docker_cloud/api/availability_zone_api'
@@ -30,6 +32,7 @@ require 'docker_cloud/api/service_api'
 require 'docker_cloud/api/container_api'
 require 'docker_cloud/api/stack_api'
 require 'docker_cloud/api/registry_api'
+require 'docker_cloud/api/events_api'
 
 # ruby libs
 require 'base64'
@@ -42,6 +45,7 @@ module DockerCloud
       INFRASTRUCTURE = 'infra'.freeze
       REPOSITORY = 'repo'.freeze
       APPLICATION = 'app'.freeze
+      AUDIT = 'audit'.freeze
     end
 
     def initialize(username, api_key)
@@ -100,6 +104,10 @@ module DockerCloud
 
     def containers
       @containers ||= DockerCloud::ContainerAPI.new(headers, ApiType::APPLICATION, self)
+    end
+
+    def events
+      @containers ||= DockerCloud::EventsAPI.new(headers, ApiType::AUDIT, self)
     end
 
     private
