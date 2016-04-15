@@ -70,6 +70,15 @@ node_types.all
 node_types.get('softlayer', '1x2.0GHzCore-2GB')
 ```
 
+## Running specs
+
+if you are using docker compose then:
+
+```
+docker-compose build
+docker-compose run ruby_docker_cloud
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/jntullo/ruby-docker-cloud. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
@@ -78,4 +87,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/jntull
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
