@@ -4,10 +4,6 @@ describe DockerCloud do
   it 'has a version number' do
     expect(DockerCloud::VERSION).not_to be nil
   end
-
-  it 'does something useful' do
-    expect(false).to eq(true)
-  end
 end
 
 describe DockerCloud::Client do
@@ -26,7 +22,7 @@ describe DockerCloud::Client do
 
     context "Events API" do
       it "will return an Events API object" do
-        expect(subject).to expect(@object).to be_a DockerCloud::EventsAPI
+        expect(subject).to be_a DockerCloud::EventsAPI
       end
     end
   end
