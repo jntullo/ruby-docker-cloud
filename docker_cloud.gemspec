@@ -6,7 +6,7 @@ require 'docker_cloud/version'
 Gem::Specification.new do |spec|
   spec.name          = 'docker_cloud'
   spec.version       = DockerCloud::VERSION
-  spec.authors       = ['Jillian Tullo']
+  spec.authors       = ['Jillian Tullo', 'Richard Adams', 'Pat Leamon']
   spec.email         = ['jillian.tullo@gmail.com']
 
   spec.summary       = 'Ruby wrapper for the Docker Cloud HTTP REST API'
