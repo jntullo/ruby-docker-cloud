@@ -38,5 +38,14 @@ module DockerCloud
       response = http_delete(resource_url(uuid))
       format_object(response, TYPE)
     end
+
+    # NOTE: Container redeployment will make a destructive update.
+    #       redeploy will update the container UUID. 
+    #       But response is still the old UUID.
+    def redeploy!(uuid)
+      url = "#{uuid}/redeploy/"
+      response = http_post(resource_url(url))
+      format_object(response, TYPE)
+    end
   end
 end
