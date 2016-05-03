@@ -68,7 +68,7 @@ module DockerCloud
 
     # def stack; info[:stack]; end
     def stack
-      @stack ||= client.stacks.find_by_uri(info[:stack])
+      @stack ||= client.stacks.get_from_uri(info[:stack])
     end
 
     # def containers; info[:containers]; end
