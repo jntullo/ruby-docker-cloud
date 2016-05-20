@@ -107,7 +107,7 @@ module DockerCloud
     end
 
     def events
-      @containers ||= DockerCloud::EventsAPI.new(headers, ApiType::AUDIT, self)
+      @events ||= DockerCloud::EventsAPI.new(headers, ApiType::AUDIT, self)
     end
 
     private
