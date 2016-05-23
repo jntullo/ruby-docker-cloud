@@ -38,9 +38,5 @@ describe DockerCloud::ContainerStreamAPI do
       end
       expect(received).to be_truthy
     end
-
-    it 'triggers our message callbacks' do
-
-    end
   end
 end
