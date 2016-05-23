@@ -30,6 +30,7 @@ require 'docker_cloud/api/node_api'
 require 'docker_cloud/api/external_repository_api'
 require 'docker_cloud/api/service_api'
 require 'docker_cloud/api/container_api'
+require 'docker_cloud/api/container_stream_api'
 require 'docker_cloud/api/stack_api'
 require 'docker_cloud/api/registry_api'
 require 'docker_cloud/api/events_api'
@@ -46,6 +47,7 @@ module DockerCloud
       REPOSITORY = 'repo'.freeze
       APPLICATION = 'app'.freeze
       AUDIT = 'audit'.freeze
+      CONTAINER = 'container'.freeze
     end
 
     def initialize(username, api_key)
