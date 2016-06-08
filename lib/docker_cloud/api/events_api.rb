@@ -10,6 +10,10 @@ module DockerCloud
       @websocket_path ||= '/events'.freeze
     end
 
+    def root_path
+      'audit'
+    end
+
     def _on_message(event)
       @listeners[:message].call(convert_to_dockercloud_event(event)) if @listeners[:message]
     end

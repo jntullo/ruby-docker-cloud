@@ -4,7 +4,7 @@ module DockerCloud
 
     def websocket
       @websocket ||= begin
-        url = URI.escape(STREAM_API_PATH + '/' + @type + '/' + API_VERSION + websocket_path)
+        url = URI.escape(STREAM_API_PATH + '/' + root_path + '/' + API_VERSION + websocket_path)
         Faye::WebSocket::Client.new(url, nil, ping: 240, headers: headers)
       end
     end
