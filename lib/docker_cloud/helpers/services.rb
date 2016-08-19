@@ -26,6 +26,10 @@ module DockerCloud
         api.stop(uuid)
       end
 
+      def scale
+        api.scale(uuid)
+      end
+
       def redeploy
         api.redeploy(uuid)
       end

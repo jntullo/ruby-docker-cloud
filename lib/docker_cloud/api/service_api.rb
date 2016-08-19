@@ -43,6 +43,12 @@ module DockerCloud
       format_object(response, TYPE)
     end
 
+    def scale(uuid)
+      url = "#{uuid}/scale/"
+      response = http_post(resource_url(url))
+      format_object(response, TYPE)
+    end
+
     def redeploy(uuid)
       url = "#{uuid}/redeploy/"
       response = http_post(resource_url(url))
